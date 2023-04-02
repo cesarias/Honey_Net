@@ -1,5 +1,5 @@
 <p align="center">
-<img src="https://i.imgur.com/XyEPKur.png" alt="Sentinel logo"/>
+<img src="https://i.imgur.com/tMxbbpd.png" alt="Sentinel logo"/>
 </p>
 
 <h1>osTicket - Prerequisites and Installation</h1>
