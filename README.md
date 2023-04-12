@@ -3,7 +3,7 @@
 </p>
 
 <h1> Azure Clould Detection Lab </h1>
-This Lab demonstrates setting up Analytic Rules to detect Security events in Sentinel..<br />
+This Lab demonstrates a highly vulnerable environment leaving many attack surfaces open for 24 hours. With the incoming traffic from all around the world we can study the data in Sentinel(SIEM) and practice Incident Response. <br />
 
 
 
@@ -11,10 +11,18 @@ This Lab demonstrates setting up Analytic Rules to detect Security events in Sen
 <h2>Environments and Technologies Used</h2>
 
 - Microsoft Azure 
-- Microsoft Sentinel
+- Microsoft Sentinel (SIEM)
 - Microsoft Defender for Cloud
 - Remote Desktop
 - KQL
+- Blob Storage
+- Powershell
+- Visual Studio Code
+- Log Analytic Workspace
+- Resource Logs
+- Activity Logs
+- Azure Active Directory Logs
+- Key Vault
 
 
 <h2>Operating Systems Used </h2>
@@ -28,7 +36,7 @@ This Lab demonstrates setting up Analytic Rules to detect Security events in Sen
 <img src="https://i.imgur.com/yc5LmJT.png"80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
- Confgure and delpoyed Azure Resources.  
+ We create our resources (VMs, Azure AD, Blob Storage, Activity Log, Key Storage) within Azure. With our Resources we ingest data into our Log Analytic Workspace that serves as our central repository. Since we will be on the public internet and our environment is highly succeptible, our resources will be constantly attacked by hackers/bots.  For that reason we will create a SIEM (Azure Sentinel). With Sentinel we will draw data out of our Log Analytic Workspace. With that data we can conduct logging, monitoring, configure alerts and plot locations of malicious attackers around the world. 
 </p>
 <br />
                                                                                         
@@ -147,7 +155,7 @@ This Lab demonstrates setting up Analytic Rules to detect Security events in Sen
 <p>
  Here ticket was assigned, status was made active and after research we close out the incident in Sentinel as a False Positive.
  
- 
+      
  Thank you for viewing. 
 </p>
 <br />
