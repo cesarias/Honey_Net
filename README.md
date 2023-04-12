@@ -22,10 +22,10 @@ This Lab demonstrates setting up Analytic Rules to detect Security events in Sen
 - MAC OS / Windows 10(VM)</b> 
 
 
-<h2> Lab Steps Steps</h2>
+<h2> Lab Description </h2>
 
 <p>
-<img src="https://i.imgur.com/KFGZRZi.png"80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/yc5LmJT.png"80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
  Confgure and delpoyed Azure Resources.  
