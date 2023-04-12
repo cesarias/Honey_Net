@@ -31,7 +31,24 @@ This Lab demonstrates setting up Analytic Rules to detect Security events in Sen
  Confgure and delpoyed Azure Resources.  
 </p>
 <br />
+                                                                                        
+ <p>
+<img src="https://i.imgur.com/yc5LmJT.png"80%" width="80%" alt="Disk Sanitization Steps"/>
+</p>
+<p>
+ Confgure and delpoyed Azure Resources.  
+</p>
+<br />                                                                                       
 
+<p>
+<img src="https://i.imgur.com/yc5LmJT.png"80%" width="80%" alt="Disk Sanitization Steps"/>
+</p>
+<p>
+ Confgure and delpoyed Azure Resources.  
+</p>
+<br />
+                                                                                        
+                                                                                        
 <p>
 <img src="https://i.imgur.com/QlLpQOV.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
