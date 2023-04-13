@@ -108,6 +108,13 @@ To form the attack maps in this lab along with our workbooks in Sentinel, two la
 </p>
 
 <p>
+<img src="https://i.imgur.com/52gvYnL.png" width="80%" alt="Disk Sanitization Steps"/>
+</p>
+<p>
+ Our two watchlists within Microsoft Sentinel.  
+</p>
+
+<p>
 <img src="https://i.imgur.com/mmk42W2.png" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
