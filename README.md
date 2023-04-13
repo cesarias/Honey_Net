@@ -41,119 +41,114 @@ This Lab demonstrates a highly vulnerable environment leaving many attack surfac
 <br />
                                                                                         
  <p>
-<img src="https://i.imgur.com/yc5LmJT.png"80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/VoAfD8s.png"80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
- Confgure and delpoyed Azure Resources.  
+ Created custom inbound rule in our Windows VM. Purposely weakinging our NSG. Allowing multiple ports to remain open, to make it attractive to attackers  world wide.   
 </p>
 <br />                                                                                       
 
 <p>
-<img src="https://i.imgur.com/yc5LmJT.png"80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/gycQtZH.png"80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
- Confgure and delpoyed Azure Resources.  
+ We create anoter Windows VM(attacker) that will act as one of our attackers where it can create alerts and incidents in our SIEM (Azure Sentinel).  
 </p>
 <br />
                                                                                         
+ <p>
+<img src="https://i.imgur.com/qtFNqyx.png" width="80%" alt="Disk Sanitization Steps"/>
+</p>
+<p>
+  Enable logging for SQL Server to report successful and failed attempts into Windows Event Viewer . 
+</p>                                                                                                    
+                                                                                        
                                                                                         
 <p>
-<img src="https://i.imgur.com/QlLpQOV.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/l8FFRO7.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
- To seucure our VM we set our incoming RDP traffic (port 3389) to only our IP address. 
-</p>
+ Begin to create one of the new alerts in Microsoft Sentinel. Name it decide the tactics and Tactics/techniques to scan for. 
 <br />
 
 <p>
-<img src="https://i.imgur.com/YFZdAeO.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/HrYaubu.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
-<p>
- To further secure our VM and reduce our attack surface we enable the just-in-time feature which makes it accessible only through time-based restrictions.
- Also implementing the principle of least privilege. Which only gives user the rights to do their specific job at task. 
-</p>
-
-<p>
-<img src="https://i.imgur.com/GJWAHNB.png" width="80%" alt="Disk Sanitization Steps"/>
-</p>
-<p>
- Next we set our data connectors and create a data collection rule to collect data from our Windows VM.</p>
-
-<p>
-<img src="https://i.imgur.com/XePKkyN.png" width="80%" alt="Disk Sanitization Steps"/>
-
-<p>
- Microsoft Overview showing we have zero incidents at the moment.
+<p> 
+  This query in the scheduled rule will alert Sentinel for EventID 4625. where failed log-in attempts are 10 or more.                                                                                               
+                                                                                                 
 </p>
 
 <p>
-<img src="https://i.imgur.com/6HO36eV.png" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/ZtKRaSv.png" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
- In our Windows VM we go to event viewer to see our Security events.
+ This code from our Attacker VM will simulate a Brute Force Attack where it loops 11 failed log-in attempts with one successful log-in at the end .</p>
+
+<p>
+<img src="https://i.imgur.com/cwJFYQf.png" width="80%" alt="Disk Sanitization Steps"/>
+
+<p>
+ This code from our Attacker VM will attempt to access the password for our Key Vault Resource we created in our Windows VM .
 </p>
 
 <p>
-<img src="https://i.imgur.com/VUtEvCo.png" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/xLv63t6.png" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
- Back in Azure we go to Microsoft Sentinel Logs and run a quick KQL query verifying the security events in our Windows VM.
-</p>
-
-<p>
-<img src="https://i.imgur.com/fgsxeE3.png" width="80%" alt="Disk Sanitization Steps"/>
-</p>
-<p>
- We run a different KQL query where we parse specific information from our logs. We will use this data to create a new scheduled Analytics Rule. 
+  Created four custom workbooks in Microsoft Sentinel to track and plot the locations of the attacks globally .
 </p>
 
 <p>
-<img src="https://i.imgur.com/MXkUknY.png" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/EubDCBR.png" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
- We create our rule query from our Sentinel Log we ran earlier and also set the set entities so Sentinel can give us the specific data we want for our       research into any incidents inciting our alert to trigger. The entities will help us paint picture better as to what exactly is going on. 
+To form the attack maps in this lab along with our workbooks in Sentinel, two large files containing Geo Data(longitude/latitude/IP addresses) were loaded into a container within a storage account. Blob SAS URLs (Shared Access Signatures) were then created for both files. The SAS URLs are ingested by our Log Repository. Creating and linking our Microsoft Sentinel resource to the Log Anaylytics workspace gives the SIEM access to all the geo data. Giving Sentinel access to this data allows watchlists/queries/workbooks and other instances to be created in the SIEM. 
+
 </p>
 
 <p>
-<img src="https://i.imgur.com/IWrc2oe.png" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/mmk42W2.png" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
- Here we have our recently created rule active.
+ Attack Map displays Network Security Groups  Malicious Flows 
+</p>
+
+<p>
+<img src="https://i.imgur.com/1h1ha5h.png" width="80%" alt="Disk Sanitization Steps"/>
+</p>
+<p>
+ Attack Map displays Syslog authoriaztion failures. 
+</p>
+
+<p>
+<img src="https://i.imgur.com/kPtXmME.png" width="80%" alt="Disk Sanitization Steps"/>
+</p>
+<p>
+ Attack Map displays Windows Authentication Failures.
 </p>                                         
                                                                                     
  <p>
-<img src="https://i.imgur.com/MdBtJky.png" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/8ZPM8Mj.png" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
- We create a scheduled task in our Windows VM to set off an alert in Sentinel.
+ Begin to inspect one of the Alerts/Incidents in Microsoft Sentinel.
 </p>                                                                                   
                                                                                 
  <p>
-<img src="https://i.imgur.com/0IXKJSc.png" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/vcR9qwr.png" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
- We can see that our scheduled task in our Windows VM alerted Sentinel and triggered an incident in our Overview. 
+ Looking further into the Brute Force Attempt, looking at the related incidents to this alert.  
 </p> 
 
 <p>
-<img src="https://i.imgur.com/0IXKJSc.png" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/h64y7gL.png" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
- We can see that our scheduled task in our Windows VM alerted Sentinel and triggered an incident in our Overview. 
+ Here ticket was assigned, status was made active and after research we close out the incident in Sentinel as a False Positive. 
 </p>                 
  
- <p>
-<img src="https://i.imgur.com/vFrY0HF.png" width="80%" alt="Disk Sanitization Steps"/>
-</p>
-<p>
- Investigating our alert in Sentinel. 
-</p>                                                                                   
-                                                                                    
-<p>
-<img src="https://i.imgur.com/ji4rBps.png" width="80%" alt="Disk Sanitization Steps"/>
-</p>
-<p>
- Here ticket was assigned, status was made active and after research we close out the incident in Sentinel as a False Positive.
  
       
  Thank you for viewing. 
